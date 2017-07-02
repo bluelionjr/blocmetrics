@@ -41,6 +41,9 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# Devise for authentication
+gem 'devise'
+
 gem 'bootstrap-sass'
 gem 'figaro'
 
