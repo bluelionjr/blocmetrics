@@ -1,0 +1,23 @@
+<br>
+<h1>Edit Registered Application</h1>
+
+<div class="row">
+   <div class="col-md-4">
+     <h3>Edit the application information below</h3>
+   </div>
+   <div class="col-md-8">
+     <%= form_for @registered_application do |f| %>
+       <div class="form-group">
+         <%= f.label :title %>
+         <%= f.text_field :title, class: 'form-control', placeholder: "Enter application title/name" %>
+       </div>
+       <div class="form-group">
+         <%= f.label :url %>
+         <%= f.text_field :url, class: 'form-control', placeholder: "Enter application's URL" %>
+       </div>
+       <div class="form-group">
+         <%= f.submit "Save", class: 'btn btn-primary' %>
+       </div>
+     <% end %>
+   </div>
+ </div>
