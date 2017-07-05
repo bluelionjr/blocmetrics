@@ -29,7 +29,6 @@ User.create!(
 )
 
 
-
 # Create Registered Applications
 7.times do
   RegisteredApplication.create!(
@@ -39,9 +38,18 @@ User.create!(
   )
 end
 
+#Create Events
+50.times do
+  Event.create!(
+  name: Faker::ChuckNorris.fact,
+  registered_application_id: RegisteredApplication.all.sample.id
+  )
+end
+
 
 registered_applications = RegisteredApplication.all
 
 puts "Seed finished"
 puts "#{User.count} users created"
 puts "#{RegisteredApplication.count} registered applications created"
+puts "#{Event.count} events created"

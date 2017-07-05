@@ -1,14 +1,25 @@
 <br>
-<h1><%= @registered_application.title %></h1>
-<div class="row">
-  <div class="col-md-8">
-    <h4><%= @registered_application.url %></h4>
-    <h4><%= @registered_application.user.email %></h4>
-  </div>
+<div class="well col-lg-10 col-md-12 col-sm-12 col-xs-12">
+  <h1 class="text-primary"><%= @registered_application.title %></h1>
+  <!-- <div class="col-md-8"> -->
+    <h3><%= @registered_application.url %></h3>
+    <h4>Registered by: <%= mail_to @registered_application.user.email %></h4>
+  <!-- </div> -->
   <br>
 
   <div class="col-md-4">
     <%= link_to "Edit", edit_registered_application_path(@registered_application), class: 'btn btn-success' %>
     <%= link_to "Remove Application", @registered_application, method: :delete, class: 'btn btn-danger', data: {confirm: 'Are you sure you want to unregister this application?'} %>
   </div>
-</div>
+  </div>
+  <br>
+
+
+    <div class="col-lg-10 col-md-12 col-sm-12 col-xs-12">
+      <h3><%= @events.count %> Events</h3>
+      <ol>
+      <% @events.each do |event| %>
+      <li><%= event %></li>
+      <% end %>
+    </ol>
+    </div>
