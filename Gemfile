@@ -43,6 +43,10 @@ gem 'jbuilder', '~> 2.5'
 
 # Devise for authentication
 gem 'devise'
+# Chartkick for beautiful JS charts
+gem 'chartkick'
+# Groupdate to group by day, week, hour, etc.
+gem 'groupdate'
 
 gem 'bootstrap-sass'
 gem 'figaro'

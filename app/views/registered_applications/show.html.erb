@@ -17,6 +17,8 @@
 
     <div class="col-lg-10 col-md-12 col-sm-12 col-xs-12">
       <h3><%= @events.count %> Events</h3>
+      <%= pie_chart @registered_application.events.group(:name).count %>
+      <%= line_chart @registered_application.events.group_by_minute(:created_at).count %>
       <ol>
       <% @events.each do |event| %>
       <li><%= event %></li>
