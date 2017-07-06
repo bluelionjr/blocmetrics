@@ -7,7 +7,7 @@ class API::EventsController < ApplicationController
   end
 
   skip_before_action :verify_authenticity_token
-  skip_before_action :authenticate_user!, only: [:create]
+  skip_before_action :authenticate_user!
 
   def create
     registered_application = RegisteredApplication.find_by(url: request.env['HTTP_ORIGIN'])
