@@ -2,7 +2,7 @@
 <div class="well col-lg-10 col-md-12 col-sm-12 col-xs-12">
   <h1 class="text-primary"><%= @registered_application.title %></h1>
   <!-- <div class="col-md-8"> -->
-    <h3><%= @registered_application.url %></h3>
+    <h3><%= link_to @registered_application.url %></h3>
     <h4>Registered by: <%= mail_to @registered_application.user.email %></h4>
   <!-- </div> -->
   <br>

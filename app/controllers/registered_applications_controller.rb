@@ -13,10 +13,8 @@ class RegisteredApplicationsController < ApplicationController
   end
 
   def create
-    @registered_application = RegisteredApplication.new
-    @registered_application.title = params[:registered_application][:title]
-    @registered_application.url = params[:registered_application][:url]
-    @registered_application.user_id = current_user.id
+    @registered_application = RegisteredApplication.new(registered_application_params)
+    @registered_application.user = current_user
 
     if @registered_application.save
       flash[:notice] = "Registered application was saved."
@@ -33,8 +31,7 @@ class RegisteredApplicationsController < ApplicationController
 
   def update
     @registered_application = RegisteredApplication.find(params[:id])
-    @registered_application.title = params[:registered_application][:title]
-    @registered_application.url = params[:registered_application][:url]
+    @registered_application.assign_attributes(registered_application_params)
 
     if @registered_application.save
       flash[:notice] = "Registered application was updated."
@@ -55,5 +52,11 @@ class RegisteredApplicationsController < ApplicationController
       flash.now[:alert] = "There was an error deleting the application."
       render :show
     end
+  end
+
+  private
+
+  def registered_application_params
+    params.require(:registered_application).permit(:title, :url)
   end
 end
